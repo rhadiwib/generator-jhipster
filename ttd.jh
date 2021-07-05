@@ -1,0 +1,60 @@
+application {
+  config {
+    baseName ttd,
+    applicationType gateway,
+    packageName com.tsel.ttd,
+    serviceDiscoveryType eureka,
+    authenticationType jwt,
+    prodDatabaseType postgresql,
+    cacheProvider hazelcast,
+    buildTool maven,
+    clientFramework react,
+    useSass true,
+    serverPort 8080
+  }
+  entities *
+}
+application {
+  config {
+    baseName gojek,
+    applicationType microservice,
+    packageName com.tsel.ttd.gojek,
+    serviceDiscoveryType eureka,
+    authenticationType jwt,
+    prodDatabaseType postgresql,
+    buildTool maven,
+    serverPort 8081
+  }
+  entities Gojek
+}
+
+application {
+  config {
+    baseName unilever,
+    applicationType microservice,
+    packageName com.tsel.ttd.unilever,
+    serviceDiscoveryType eureka,
+    authenticationType jwt,
+    prodDatabaseType postgresql,
+    buildTool maven,
+    serverPort 8082
+  }
+  entities Unilever
+}
+
+/* Entities for Store Gateway */
+/** Product sold by the Online store */
+
+entity Gojek {
+	daid String,
+    segmentName String,
+    segmentId String,
+    deliveryTime Instant
+}
+
+entity Unilever {
+	daid String,
+    segmentName String,
+    segmentId String,
+    deliveryTime Instant
+}
