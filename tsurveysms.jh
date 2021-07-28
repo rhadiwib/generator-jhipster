@@ -1,0 +1,34 @@
+application {
+  config {
+    baseName tsurveysms,
+    applicationType gateway,
+    packageName com.tsel.tsurvey,
+    serviceDiscoveryType eureka,
+    authenticationType jwt,
+    prodDatabaseType postgresql,
+    cacheProvider hazelcast,
+    buildTool maven,
+    clientFramework react,
+    useSass true,
+    serverPort 8181
+  }
+  entities *
+}
+
+entity Sms {
+    surveyId String,
+    batchId Integer,
+    transactionId String,
+    channel String,
+    serviceId String,
+    senderId String,
+    smsText String,
+    createdAt Instant,
+    sendAt Instant,
+    status String,
+    response String,
+    deliveredAt Instant
+}
+
+service Sms with serviceClass
+paginate Sms with pagination
